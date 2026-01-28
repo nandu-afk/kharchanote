@@ -61,4 +61,20 @@ function showExpenses() {
   document.getElementById("total").textContent = "₹" + total;
 }
 
+function showMonthlyTotal() {
+  let now = new Date();
+  let month = now.getMonth();
+  let year = now.getFullYear();
+  let total = 0;
+
+  expenses.forEach(e => {
+    let d = new Date(e.date);
+    if (d.getMonth() === month && d.getFullYear() === year) {
+      total += e.amount;
+    }
+  });
+
+  alert("Is mahine ka total kharcha: ₹" + total);
+}
+
 showExpenses();
