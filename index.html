@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>KharchaNote</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <h1>KharchaNote</h1>
+
+  <div class="card">
+    <h2>Aaj ka Total Kharcha</h2>
+    <p id="total">₹0</p>
+  </div>
+
+  <div class="card">
+    <input type="number" id="amount" placeholder="Amount (₹)">
+    <input type="text" id="note" placeholder="Note (chai, sabzi...)">
+    <button onclick="addExpense()">Kharcha Jodo</button>
+  </div>
+
+  <div class="card">
+    <h3>Aaj ke Kharchay</h3>
+    <ul id="list"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
