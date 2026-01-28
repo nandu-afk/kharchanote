@@ -14,6 +14,15 @@ function addExpense() {
     note: note || "Kharcha"
   });
 
+  saveAndRefresh();
+}
+
+function deleteExpense(index) {
+  expenses.splice(index, 1);
+  saveAndRefresh();
+}
+
+function saveAndRefresh() {
   localStorage.setItem("expenses", JSON.stringify(expenses));
   document.getElementById("amount").value = "";
   document.getElementById("note").value = "";
@@ -25,10 +34,15 @@ function showExpenses() {
   let total = 0;
   list.innerHTML = "";
 
-  expenses.forEach(e => {
+  expenses.forEach((e, index) => {
     total += e.amount;
+
     let li = document.createElement("li");
-    li.textContent = `₹${e.amount} - ${e.note}`;
+    li.innerHTML = `
+      ₹${e.amount} - ${e.note}
+      <button onclick="deleteExpense(${index})">❌</button>
+    `;
+
     list.appendChild(li);
   });
 
